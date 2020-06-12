@@ -5,11 +5,10 @@ namespace FactoryMethod
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
-            IPolicyFactory factory = null;
             var policyType = GetPolicyTypeFromUser();
-            factory = CreatePolicyFactory(policyType);
+            var factory = CreatePolicyFactory(policyType);
             
             if (factory == null) return;
             
@@ -35,7 +34,7 @@ namespace FactoryMethod
             Console.WriteLine("Please Select Policy Type : ");
             Console.WriteLine("1) Life");
             Console.WriteLine("2) Vehicle");
-            return Int32.Parse(Console.ReadLine());
+            return int.Parse(Console.ReadLine() ?? "1");
         }
     }
 }
